@@ -1,9 +1,6 @@
-# Modbus-Connected-Home
-Управляет DIO через Modbus. Пока тестируется.
-
-Должен быть файл в расположении: /config/modbus/poller.yaml
-
-**Содержимое:**
+Должен быть файл в расположени /config/modbus/poller.yaml
+Содержимое
+  -
   mqtt_broker: 172.30.32.1
   mqtt_port: 1883
   device: /dev/ttyUSB0
