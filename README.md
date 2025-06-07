@@ -2,7 +2,8 @@
 Управляет DIO через Modbus. Пока тестируется.
 
 Должен быть файл в расположении: /config/modbus/poller.yaml
-Содержимое:
+
+**Содержимое:**
   mqtt_broker: 172.30.32.1
   mqtt_port: 1883
   device: /dev/ttyUSB0
