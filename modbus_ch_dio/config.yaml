@@ -1,5 +1,5 @@
 name: Modbus Connected Home
-version: "0.0.2"
+version: "0.0.3"
 slug: modbus_ch_dio
 description: A custom Home Assistant Add-on to run a Python script.
 icon: images/logo.png  # <-- ДОБАВЬ ЭТУ СТРОКУ! Путь к твоему логотипу
