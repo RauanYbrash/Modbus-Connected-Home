@@ -8,7 +8,7 @@ arch:
   - armhf
   - armv7
   - i386
-#url: https://your-github-repo-optional.com # Здесь можешь указать ссылку на свой репозиторий, если есть
+url: https://github.com/RauanYbrash/Modbus-Connected-Home.git # Здесь можешь указать ссылку на свой репозиторий, если есть
 startup: application # Запускать как приложение
 stage: stable
 options: {}
