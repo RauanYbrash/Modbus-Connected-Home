@@ -14,6 +14,9 @@ RUN pip3 install --break-system-packages -r /app/requirements.txt
 # Копируем твой Python скрипт
 COPY pollers.py /app/pollers.py
 
+# Копируем папку с изображениями, включая логотип
+COPY images /app/images # <-- ДОБАВИТЬ ЭТУ СТРОКУ!
+
 # Копируем скрипт запуска
 COPY run.sh /usr/bin/run.sh
 
