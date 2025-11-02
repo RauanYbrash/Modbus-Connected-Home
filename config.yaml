@@ -1,5 +1,5 @@
 name: Modbus Connected Home
-version: "0.0.3"
+version: "0.0.4"
 slug: modbus_ch_dio
 description: A custom Home Assistant Add-on to run a Python script.
 icon: images/icon.png  # <-- ДОБАВЬ ЭТУ СТРОКУ! Путь к твоему логотипу
@@ -34,10 +34,11 @@ build_config:
   squash: true
 
 host_network: true # Скорее всего нужно, чтобы MQTT работал без проблем
-devices:
-  - /dev/ttyUSB0:/dev/ttyUSB0 
+# devices:
+#   - /dev/ttyUSB0:/dev/ttyUSB0 
   
 # Этот скрипт будет запускаться при старте контейнера
 run: run.sh
+
 
 
