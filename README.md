@@ -20,22 +20,24 @@
 /config/modbus/poller.yaml
 
 Пример poller.yaml
-mqtt_broker: 172.30.32.1
-mqtt_port: 1883
-device: /dev/ttyUSB0
-username: modbus
-passwd: modbus
-slaves:
-  -
-    period: 2
-    alias: DIO
-    slave_id: 1
-    data:
-      discrete_inputs:
-        count: 32
-      coils:
-        count: 16
-    topics:
+-
+
+  mqtt_broker: 172.30.32.1
+  mqtt_port: 1883
+  device: /dev/ttyUSB0
+  username: modbus
+  passwd: modbus
+  slaves:
+    -
+      period: 2
+      alias: DIO
+      slave_id: 1
+      data:
+        discrete_inputs:
+          count: 32
+        coils:
+          count: 16
+      topics:
       - mb/1/15/0
       - mb/1/15/1
       - mb/1/15/2
