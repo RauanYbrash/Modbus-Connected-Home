@@ -599,12 +599,9 @@ class LRPollerSync:
         self.write_q.put(value)
         # print('added to queue:', value)
 
-# if __name__ == '__main__':
-#     port = '/dev/ttyUSB0'
-#     if len(sys.argv) > 1:
-#         port = sys.argv[1]
+if __name__ == '__main__':
+    port = '/dev/ttyUSB0'
+    if len(sys.argv) > 1:
+        port = sys.argv[1]
 
-#     lr_poller = LRPollerSync(port)
-    port = sys.argv[1]
     lr_poller = LRPollerSync(port)
-
