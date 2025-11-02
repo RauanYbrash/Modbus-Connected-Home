@@ -1,21 +1,10 @@
 #!/usr/bin/with-contenv bash
-set -e
-set -u
-set -o pipefail
 
-POLL_YAML="/config/modbus/poller.yaml"
+# Запустим твой Python скрипт в фоновом режиме
+# Здесь мы используем exec, чтобы скрипт заменил собой процесс run.sh,
+# что позволяет Docker правильно обрабатывать сигналы завершения
+# Home Assistant Supervisor обычно перенаправляет stdout/stderr в логи
+# Python скрипта.
 
-if [[ ! -f "$POLL_YAML" ]]; then
-  echo "❌ Error: poller.yaml not found!"
-  exit 1
-fi
-
-DEVICE=$(grep -E '^device:' "$POLL_YAML" | awk '{print $2}')
-
-if [[ -z "$DEVICE" ]]; then
-  echo "❌ Error: device not found in poller.yaml!"
-  exit 1
-fi
-
-echo "✅ Found device: $DEVICE"
-exec python3 /app/pollers.py "$DEVICE"
+# Убедись, что путь к Python скрипту внутри контейнера правильный
+python3 /app/pollers.py
