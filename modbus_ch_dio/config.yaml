@@ -27,9 +27,10 @@ map:
   - "share:rw"
 
 host_network: true
-privileged: true
+# privileged: true
 devices:
   - /dev:/dev
+
 
 
 
