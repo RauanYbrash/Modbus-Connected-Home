@@ -605,3 +605,6 @@ class LRPollerSync:
 #         port = sys.argv[1]
 
 #     lr_poller = LRPollerSync(port)
+    port = sys.argv[1]
+    lr_poller = LRPollerSync(port)
+
