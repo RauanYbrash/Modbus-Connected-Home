@@ -19,15 +19,14 @@
 Файл конфигурации `poller.yaml` должен находиться по пути:
 /config/modbus/poller.yaml
 
-Пример poller.yaml
+Пример poller.yaml:
 -
-
-  mqtt_broker: 172.30.32.1
-  mqtt_port: 1883
-  device: /dev/ttyUSB0
-  username: modbus
-  passwd: modbus
-  slaves:
+    mqtt_broker: 172.30.32.1
+    mqtt_port: 1883
+    device: /dev/ttyUSB0
+    username: modbus
+    passwd: modbus
+    slaves:
     -
       period: 2
       alias: DIO
