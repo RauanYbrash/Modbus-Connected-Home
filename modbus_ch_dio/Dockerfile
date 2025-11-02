@@ -14,11 +14,11 @@ RUN apk add --no-cache \
 WORKDIR /app
 
 # Копируем requirements.txt и устанавливаем зависимости
-COPY requirements.txt .
+COPY requirements.txt
 RUN pip3 install --break-system-packages -r requirements.txt
 
 # Копируем Python-скрипт
-COPY pollers.py .
+COPY pollers.py
 
 # Копируем и делаем исполняемым run.sh
 COPY run.sh /run.sh
@@ -26,3 +26,4 @@ RUN chmod a+x /run.sh
 
 # Запуск скрипта при старте контейнера
 CMD [ "/run.sh" ]
+
