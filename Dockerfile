@@ -1,24 +1,28 @@
 ARG BUILD_FROM
 FROM ${BUILD_FROM}
 
-# Устанавливаем Python3, pip И необходимые инструменты для сборки
-RUN apk add --no-cache python3 py3-pip build-base python3-dev libffi-dev openssl-dev cython # <-- ДОБАВИТЬ cython СЮДА!
+# Устанавливаем Python3 и инструменты для сборки пакетов
+RUN apk add --no-cache \
+    python3 \
+    py3-pip \
+    build-base \
+    python3-dev \
+    libffi-dev \
+    openssl-dev
 
-# Копируем файл requirements.txt
-COPY requirements.txt /app/requirements.txt
+# Создаём рабочую директорию
+WORKDIR /app
 
-# Устанавливаем Python-зависимости из requirements.txt
-# Добавляем --break-system-packages
-RUN pip3 install --break-system-packages -r /app/requirements.txt
+# Копируем requirements.txt и устанавливаем зависимости
+COPY requirements.txt .
+RUN pip3 install --break-system-packages -r requirements.txt
 
-# Копируем твой Python скрипт
-COPY pollers.py /app/pollers.py
+# Копируем Python-скрипт
+COPY pollers.py .
 
-# Копируем скрипт запуска
-COPY run.sh /usr/bin/run.sh
+# Копируем и делаем исполняемым run.sh
+COPY run.sh /run.sh
+RUN chmod a+x /run.sh
 
-# Делаем скрипт запуска исполняемым
-RUN chmod +x /usr/bin/run.sh
-
-# Запускаем скрипт run.sh при старте контейнера
-CMD [ "/usr/bin/run.sh" ]
+# Запуск скрипта при старте контейнера
+CMD [ "/run.sh" ]
